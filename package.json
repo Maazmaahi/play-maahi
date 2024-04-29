@@ -2,8 +2,10 @@
   "name": "play-maahi",
   "version": "1.0.0",
   "description": "A backend for play maahi",
+  "type": "module",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -11,5 +13,8 @@
     "backend"
   ],
   "author": "Maaz Maahi",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
 }
