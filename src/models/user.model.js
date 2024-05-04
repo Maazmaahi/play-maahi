@@ -30,15 +30,15 @@ const userSchema = new Schema(
       type: String, // cloudinary url
       required: true,
     },
-    coverimage: [
+    coverImage: {
+      type: String, // cloudinary url
+    },
+    watchHistory: [
       {
-        type: String, // cloudinary url
+        type: Schema.Types.ObjectId,
+        ref: "Video",
       },
     ],
-    watchHistory: {
-      type: Schema.Types.ObjectId,
-      ref: "Video",
-    },
     password: {
       type: String,
       required: [true, "Password is required"],
