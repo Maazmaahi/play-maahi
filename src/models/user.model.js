@@ -33,6 +33,9 @@ const userSchema = new Schema(
     coverImage: {
       type: String, // cloudinary url
     },
+    refreshToken: {
+      type: String,
+    },
     watchHistory: [
       {
         type: Schema.Types.ObjectId,
@@ -42,9 +45,6 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: [true, "Password is required"],
-    },
-    refreshToken: {
-      type: String,
     },
   },
   {
@@ -64,7 +64,7 @@ userSchema.methods.isPasswordCorrect = async function (password) {
 };
 
 userSchema.methods.generateAccessToken = function () {
-  jwt.sign(
+  return jwt.sign(
     {
       _id: this._id,
       email: this.email,
@@ -77,9 +77,8 @@ userSchema.methods.generateAccessToken = function () {
     }
   );
 };
-
 userSchema.methods.generateRefreshToken = function () {
-  jwt.sign(
+  return jwt.sign(
     {
       _id: this._id,
     },
