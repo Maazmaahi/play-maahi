@@ -12,7 +12,7 @@ const subscriptionSchema = new Schema(
     },
   },
   {
-    timestamps: truue,
+    timestamps: true,
   }
 );
 
